@@ -11,16 +11,17 @@ function data = calibrate(Temp, N_measurement, delay, data_prev, save_path)
 %                                 the resistance and temperature
 %
 
-% list of channels
-channel_list = '101-110';
+% list of channels & number of thermistors
+channel_list = '101-110'; N_thermistors = 10;
 
 % open device
 device = visadev("USB0::0x2A8D::0x5101::MY58036907::0::INSTR");
 
 % allocate data
-data = zeros(11,1); data(11) = Temp; R = zeros(10,1);
-% data(11) is temperature, data(1:8) are C1-C8,
-% data(9) is Top, data(10) is bottom
+data = zeros(N_thermistors+1,1); 
+data(N_thermistors+1) = Temp; R = zeros(N_thermistors,1);
+% data(N_thermistors+1) is temperature, data(1:N_thermistors) are the
+% averaged resistance for thermistors
 
 % measure
 for k = 1:N_measurement
@@ -36,7 +37,7 @@ clear device;
 
 % save all the resistance
 R = R/N_measurement;
-data(1:10) = R;
+data(1:N_thermistors) = R;
 
 % check whether previous data exists
 if exist('data_prev','var')

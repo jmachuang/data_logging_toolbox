@@ -7,8 +7,8 @@ function T = measure_T(N_measurement)
 % output:   T                 - temperature
 %
 
-% list of channels
-channel_list = '101-110';
+% list of channels & number of thermistors
+channel_list = '101-110'; N_thermistors = 10;
 
 % see how many measurements are needed
 if ~exist('num_measurement','var')
@@ -19,7 +19,7 @@ end
 device = visadev("USB0::0x2A8D::0x5101::MY58036907::0::INSTR");
 
 % allocate r
-R = zeros(10,1);
+R = zeros(N_thermistors, 1);
 
 % do measurements
 for k = 1:N_measurement
