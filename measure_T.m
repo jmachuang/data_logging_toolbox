@@ -11,7 +11,7 @@ function T = measure_T(N_measurement)
 channel_list = '101-110'; N_thermistors = 10;
 
 % see how many measurements are needed
-if ~exist('num_measurement','var')
+if ~exist('N_measurement','var')
     N_measurement = 1;
 end
 
