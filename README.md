@@ -2,7 +2,7 @@
 AML, AMLSH, AMLDT, 2024
 
 
-This is the data logging toolbox for Keysight data loggers.
+This is the data logging toolbox for Keysight data loggers, for thermistor related applications.
 
 
 Key features:
