@@ -45,7 +45,7 @@ if exist('data_prev','var')
 end
 
 % check whether to save data in text file
-if exist('data_prev','var')
+if exist('save_path','var')
     mkdir(save_path);
     filename = [save_path, 'save_', num2str(Temp) '.txt'];
     fileID = fopen(filename,'w');
