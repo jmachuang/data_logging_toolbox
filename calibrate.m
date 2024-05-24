@@ -12,7 +12,7 @@ function data = calibrate(Temp, N_measurement, delay, data_prev, save_path)
 %
 
 % list of channels & number of thermistors
-channel_list = '101-110'; N_thermistors = 10;
+channel_list = '101:110'; N_thermistors = 10;
 
 % open device
 device = visadev("USB0::0x2A8D::0x5101::MY58036907::0::INSTR");
