@@ -31,9 +31,9 @@ while tt < T_end
     
     % display progress once in a while
     if mod(k, 20) == 0
-        time_now = seconds(tt); time_now.Format = "hh:mm:ss";
+        time_remaining = seconds(T-tt); time_remaining.Format = "hh:mm:ss";
         disp([num2str(tt/T_end*100, '%.1f') '% done, time' ...
-              char(time_now) ' remaining.'])
+              char(time_remaining) ' remaining.'])
     end
     
     % forward the counter
