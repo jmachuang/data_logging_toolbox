@@ -3,7 +3,7 @@
 %
 
 % total time in seconds
-T = 12*3600;
+T_end = 12*3600;
 
 % list of channels & number of thermistors
 channel_list = '101:110'; N_thermistors = 10;
@@ -21,15 +21,15 @@ k = 1; tt = 0;
 tic
 
 % do measurements
-while tt < T
+while tt < T_end
     tt = toc;
     R = record_R(device, channel_list); T = R2T(R);
     data(:, k) = [T; tt];
     
     % display progress once in a while
     if mod(k, 100) == 0
-        disp([num2str(tt/T*100, '%.1f') '% done, ' ...
-              num2str((T - tt)/60, '%.1f') ' minutes  remaining.'])
+        disp([num2str(tt/T_end*100, '%.1f') '% done, ' ...
+              num2str((T_end - tt)/60, '%.1f') ' minutes  remaining.'])
     end
     
     % forward the counter
