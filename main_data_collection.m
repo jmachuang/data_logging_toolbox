@@ -2,6 +2,9 @@
 %           AMLDT, 05/30/2024, v1, Mac Huang
 %
 
+clear all
+close all
+
 % total time in seconds
 T_end = 12*3600;
 
@@ -23,7 +26,7 @@ tic
 % do measurements
 while tt < T_end
     tt = toc;
-    R = record_R(device, channel_list); T = R2T(R);
+    R = record_R(device, channel_list)'; T = R2T(R);
     data(:, k) = [T; tt];
     
     % display progress once in a while
