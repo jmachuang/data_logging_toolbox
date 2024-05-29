@@ -30,7 +30,7 @@ while tt < T_end
     data(:, k) = [T; tt];
     
     % display progress once in a while
-    if mod(k, 100) == 0
+    if mod(k, 20) == 0
         disp([num2str(tt/T_end*100, '%.1f') '% done, ' ...
               num2str((T_end - tt)/60, '%.1f') ' minutes  remaining.'])
     end
