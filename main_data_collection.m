@@ -14,9 +14,11 @@ device = visadev("USB0::0x2A8D::0x5101::MY58036907::0::INSTR");
 % initiate data
 data = zeros(11,1);
 
+% initialize counter and timer
+k = 1; tt = 0;
+
 % start the timer!
 tic
-k = 1;
 
 % do measurements
 while tt < T
